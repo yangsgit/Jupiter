@@ -37,6 +37,7 @@ public class SearchItem extends HttpServlet {
 		String term = request.getParameter("term");
 
 		DBConnection conn = DBConnectionFactory.getConnection();
+		// call ticket mast api and save searched item in database
 		List<Item> items = conn.searchItems(lat, lon, term);
 
 		Set<String> favorite = conn.getFavoriteItemIds(userId);
